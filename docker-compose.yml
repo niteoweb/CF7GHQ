@@ -1,0 +1,24 @@
+web:
+  image: dz0ny/wpbox
+  environment:
+    HTTP_PROXY: http://172.17.42.1:8080/
+    HTTPS_PROXY: https://172.17.42.1:8080/
+  ports:
+   - 80:80
+  volumes:
+   - ./src:/var/www/html/wp-content/plugins/cf7ghq:ro
+  links:
+   - mysql
+   - mailhog
+mysql:
+  image: mysql
+  ports:
+    - 3306
+  environment:
+    MYSQL_DATABASE: wordpress
+    MYSQL_ROOT_PASSWORD: wordpress
+mailhog:
+  image: mailhog/mailhog
+  ports:
+    - 8025:8025
+    - 1025
