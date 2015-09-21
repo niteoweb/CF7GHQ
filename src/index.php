@@ -136,8 +136,10 @@ class CF7GHQ
         preg_match_all($re, $msg, $matches);
 
         foreach ($matches[0] as $i => $whole) {
-            $type = explode(' ', $matches[1][$i])[0];
-            $key = explode(' ', $matches[1][$i])[1];
+            $type = explode(' ', $matches[1][$i]);
+            $type = $type[0];
+            $key = explode(' ', $matches[1][$i]);
+            $key = $key[1];
             if ($type === "file") {
                 $msg = str_replace($whole, $this->getFileURL($posted[$key]), $msg);
             } else {
