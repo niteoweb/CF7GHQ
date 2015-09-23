@@ -1,13 +1,21 @@
-# GrooveHQ Integration for Contact Form 7
+=== Integration between GrooveHQ and CF7 ===
+Contributors: dz0ny
+Tags: contact, form, contact form 7, groove, groovehq, integration
+Requires at least: 4.3
+Tested up to: 4.3.1
+Stable tag: 4.3
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-# Description
 Plugin allows you to choose contact forms that send requests directly to GrooveHQ inbox instead to email.
 
-# Plugin Features
+== Description ==
+
 - Uses Contact Form 7.
 - Send form submissions directly to GrooveHQ inbox.
+- Supports multiple form overrides
 
-# Installation
+== Installation ==
 
 1. Upload plugin to the '/wp-content/plugins/' directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress

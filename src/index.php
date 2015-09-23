@@ -1,9 +1,7 @@
 <?php
-namespace Niteoweb\WP7GHQ;
-
 /*
- * Plugin Name: Contact Form 7 GrooveHQ integration
- * Description: Send Contact form 7 submissions to GrooveHQ.
+ * Plugin Name: Integration between GrooveHQ and CF7
+ * Description: Plugin allows you to choose contact forms that send requests directly to GrooveHQ inbox instead to email.
  * Version:     1.0.0
  * Author:      NiteoWeb Ltd.
  * Author URI:  www.niteoweb.com
@@ -19,6 +17,8 @@ if (version_compare(PHP_VERSION, '5.3.0', '<')) {
     <?php
     die();
 }
+
+namespace Niteoweb\WP7GHQ;
 
 class CF7GHQ
 {
