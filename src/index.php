@@ -1,24 +1,13 @@
 <?php
+namespace Niteoweb\WP7GHQ;
 /*
  * Plugin Name: Integration between GrooveHQ and CF7
  * Description: Plugin allows you to choose contact forms that send requests directly to GrooveHQ inbox instead to email.
- * Version:     1.0.0
+ * Version:     1.0.2
+ * Runtime:     5.3
  * Author:      NiteoWeb Ltd.
  * Author URI:  www.niteoweb.com
  */
-
-if (version_compare(PHP_VERSION, '5.3.0', '<')) {
-    ?>
-    <div id="error-page">
-        <p>This plugin requires PHP 5.3.0 or higher. Please contact your hosting provider about upgrading your
-            server software. Your PHP version is <b><?php echo PHP_VERSION;
-                ?></b></p>
-    </div>
-    <?php
-    die();
-}
-
-namespace Niteoweb\WP7GHQ;
 
 class CF7GHQ
 {

@@ -1,4 +1,8 @@
-VERSION := 1.0.0
+VERSION := 1.0.2
+PLUGINSLUG := integration-between-groovehq-and-cf7
+MAINFILE := index.php
+SRCPATH := $(shell pwd)/src
+SVNUSER := niteoweb
 
 test:
 	bin/phpunit
@@ -10,9 +14,11 @@ release:
 	mv cf7ghq.zip build/
 
 deploy:
-	-bin/linux/amd64/github-release delete -u niteoweb -r cf7ghq -t v$(VERSION)
-	-bin/linux/amd64/github-release delete -u niteoweb -r cf7ghq -t latest
-	bin/linux/amd64/github-release release -u niteoweb -r cf7ghq -t v$(VERSION)
-	bin/linux/amd64/github-release release -u niteoweb -r cf7ghq -t latest
-	bin/linux/amd64/github-release upload -u niteoweb -r cf7ghq -t v$(VERSION) -f build/cf7ghq.zip -n cf7ghq.zip
-	bin/linux/amd64/github-release upload -u niteoweb -r cf7ghq -t latest -f build/cf7ghq.zip -n cf7ghq.zip
+	@rm -fr /tmp/$(PLUGINSLUG)/
+	svn co http://plugins.svn.wordpress.org/$(PLUGINSLUG)/ /tmp/$(PLUGINSLUG)
+	cp -ar $(SRCPATH)/* /tmp/$(PLUGINSLUG)/trunk/
+	cd /tmp/$(PLUGINSLUG)/trunk/; svn add * --force
+	cd /tmp/$(PLUGINSLUG)/trunk/; svn commit --username=$(SVNUSER) -m "Updating to $(VERSION)"
+	cd /tmp/$(PLUGINSLUG)/; svn copy trunk/ tags/$(VERSION)/
+	cd /tmp/$(PLUGINSLUG)/tags/$(VERSION)/; svn commit --username=$(SVNUSER) -m "Tagging version $(VERSION)"
+	# rm -fr /tmp/$(PLUGINSLUG)/
