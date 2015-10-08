@@ -11,7 +11,7 @@ class WPCF7_Submission {
 	}
 }
 
-class TestIntegration extends \Xpmock\TestCaseTrait {
+class TestIntegration extends \Xpmock\TestCase {
 
 	function setUp() {
 		\WP_Mock::setUp();
