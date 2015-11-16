@@ -327,7 +327,7 @@ class CF7GHQ
 
     public function getOption($opt, $default = "")
     {
-        $options = get_option($this->settings_ns);
+        $options = get_option($this->settings_ns, array());
         if (array_key_exists('cf7ghq_' . $opt, $options)) {
             return $options['cf7ghq_' . $opt];
         }
